@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { IPost } from '../../interfaces/ipost.interfaces';
 import { DatePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-blog',
-  imports: [DatePipe],
+  imports: [DatePipe, FormsModule],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.css'
 })
 export class BlogComponent {
+  newPost: IPost = { id: 0, title: "", author: "", date: "", body: "", url: "" }
+  id: number = 1;
   arrPosts: IPost[] = [
     {
       id: 1,
@@ -38,6 +41,19 @@ export class BlogComponent {
 
   ngOnInit() {
     //this.getData();
+  }
+
+  guardarPost() {
+    if (this.newPost.title !== "" && this.newPost.author !== "" && this.newPost.date !== "" && this.newPost.body !== "" && this.newPost.url !== "") {
+      //puedo insertar el elemento en el array
+      this.newPost.id = this.id;
+      this.arrPosts.push(this.newPost);
+      this.id++;
+      this.newPost = { id: 0, title: "", author: "", date: "", body: "", url: "" }
+      console.log(this.arrPosts)
+    } else {
+      alert('Todos los campos son obligatorios')
+    }
   }
 
   /*   getData(): string {

@@ -1,12 +1,12 @@
 <section class="blog">
   <section class="sectionform">
     <div class="form">
-      <input type="text" placeholder="introduce el titulo del noticia">
-      <input type="text" placeholder="introduce el autor">
-      <input type="date" placeholder="introduce la fecha">
-      <input type="text" placeholder="introduce la la url de la imagen">
-      <textarea name="" id="" rows="10"></textarea>
-      <button>Guardar</button>
+      <input type="text" placeholder="introduce el titulo del noticia" [(ngModel)]="newPost.title">
+      <input type="text" placeholder="introduce el autor" [(ngModel)]="newPost.author">
+      <input type="date" placeholder="introduce la fecha" [(ngModel)]="newPost.date">
+      <input type="text" placeholder="introduce la la url de la imagen" [(ngModel)]="newPost.url">
+      <textarea name="" id="" rows="10" [(ngModel)]="newPost.body"></textarea>
+      <button (click)="guardarPost()">Guardar</button>
     </div>
   </section>
 
