@@ -12,52 +12,21 @@
 
   <h2>Mis viajes preferidos</h2>
   <hr>
+  <!-- <div class="grid" [innerHTML]="getData()"> --->
   <div class="grid">
+    @for( post of arrPosts; track post.id ){
     <article>
       <figure>
-        <img src="https://www.grecia.info/es/wp-content/uploads/sites/49/creta-grecia-thumbnail.jpg" alt="creta">
+        <img [src]="post.url" [alt]="post.title">
       </figure>
-      <h3>Viaje a la isla de creta</h3>
-      <p>Autor: Juan Antonio Pérez</p>
-      <p>Fecha: 25/02/2025</p>
-      <div class="content">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ducimus ratione voluptatibus at porro fugit
-          obcaecati exercitationem deserunt, tempora a ipsam vel excepturi laboriosam nemo, magnam, ab similique
-          mollitia.
-          Velit.</p>
+      <h3>{{post.title}}</h3>
+      <p>Autor: {{post.author}}</p>
+      <p>Fecha: {{post.date | date: 'dd/MM/YY'}}</p>
+      <div class="content" [innerHTML]="post.body">
       </div>
-
     </article>
-    <article>
-      <figure>
-        <img src="https://www.grecia.info/es/wp-content/uploads/sites/49/creta-grecia-thumbnail.jpg" alt="creta">
-      </figure>
-      <h3>Viaje a la isla de creta</h3>
-      <p>Autor: Juan Antonio Pérez</p>
-      <p>Fecha: 25/02/2025</p>
-      <div class="content">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ducimus ratione voluptatibus at porro fugit
-          obcaecati exercitationem deserunt, tempora a ipsam vel excepturi laboriosam nemo, magnam, ab similique
-          mollitia.
-          Velit.</p>
-      </div>
+    }
 
-    </article>
-    <article>
-      <figure>
-        <img src="https://www.grecia.info/es/wp-content/uploads/sites/49/creta-grecia-thumbnail.jpg" alt="creta">
-      </figure>
-      <h3>Viaje a la isla de creta</h3>
-      <p>Autor: Juan Antonio Pérez</p>
-      <p>Fecha: 25/02/2025</p>
-      <div class="content">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ducimus ratione voluptatibus at porro fugit
-          obcaecati exercitationem deserunt, tempora a ipsam vel excepturi laboriosam nemo, magnam, ab similique
-          mollitia.
-          Velit.</p>
-      </div>
-
-    </article>
   </div>
 
 </section>
